@@ -1,0 +1,433 @@
+html, body { height:100%; margin:0; }
+body { display:flex; flex-direction:column; }
+main { flex:1 0 auto; }
+
+footer{
+  flex-shrink:0;
+  background:#000;
+  color:#fff;
+  text-align:center;
+  padding:15px 0;
+  font-size:14px;
+  font-family:Arial, sans-serif;
+  width:100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap; /* Så det funkar i mobil också */
+}
+
+.hero-banner {
+    position: relative;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    color: white;
+    overflow: hidden; /* så att sudd inte sticker ut */
+}
+
+.hero-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: 
+      linear-gradient(rgba(0,0,0,0.20), rgba(0,0,0,0.20)),
+      url('bilder/bild1.jpg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(4px);
+  z-index: -1;
+}
+
+.hero-content {
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 500px;
+    color: black;
+    margin-left: 30px;
+}
+
+.hero-content h1 {
+    font-size: 100px;
+    margin: 0;
+    font-weight: 700;
+    line-height: 0.85;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.hero-content p {
+    font-size: 30px;
+    margin-bottom: 50px;   /* eller 60px om du vill ha ännu mer space */
+    color: white;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .hero-banner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* centrerar vertikalt */
+      text-align: center;
+      padding: 40px 16px;
+    }
+  
+    .hero-content {
+      max-width: none;
+      color: rgb(255, 255, 255);
+    }
+  
+    .cta-button {
+      display: inline-block;
+      margin-top: 12px;
+    }
+
+    .hero-content h1 {
+        font-size: 65px;      /* justera vid behov: 32–40px */
+        line-height: 1.1;     /* tajtare rader så den inte blir jättelång */
+        letter-spacing: .5px; /* lite luftigare bokstäver */
+        text-align: center;   /* ser snyggt ut på smal vy */
+        color: rgb(255, 255, 255);
+      }
+  }
+  
+.cta-button {
+    background-color: white;
+    color: #0c0b0b;
+    padding: 15px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-top: 40px;   
+}
+
+.cta-button:hover {
+    background-color: white;
+}
+
+/* Tjänster */
+.tjanster-section h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 36px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #000;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+.tjanster-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+    margin: 60px auto; /* <-- ökade från 40px till 60px */
+}
+
+.tjanster-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.tjanst {
+    max-width: 500px;
+}
+
+.tjanst img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.tjanst h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px 0 5px;
+}
+
+.tjanst p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* MER-knapp */
+.more-btn-container {
+  background-color: white;
+  margin-top: 10px;
+  text-align: center;
+  margin-bottom: 0;
+  padding: 12px 20px; /* gör knappen större */
+  border-radius: 8px; /* rundade hörn (valfritt) */
+  font-size: 1.1rem; /* lite större text */
+  display: inline-block; /* så den beter sig som en knapp */
+  cursor: pointer; /* pekaren ändras till hand när man hovrar */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  font-weight: 900;
+}
+
+.more-btn {
+    display: inline-block;
+    background-color: #292828;
+    color: white;
+    padding: 20px 60px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: normal;
+    transition: background-color 0.3s;
+    margin-bottom: 20px; /* lägger till lite utrymme under knappen */
+}
+
+.more-btn:hover {
+    background-color: #504f4f;
+}
+
+/* Öppettider & Kontakt */
+.oppettider-kontakt {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 450px; /* avstånd mellan kolumnerna */
+    background-color: #f0f0f0;
+    padding: 20px;
+    margin-top: 0; /* inget extra mellanrum */
+    /* padding-bottom: 20px; */
+}
+
+.oppettider-kontakt > div {
+    text-align: left;
+}
+
+.oppettider-kontakt ul {
+    list-style: none;   /* tar bort punkterna */
+    padding-left: 0;    /* tar bort indraget */
+    margin: 0;          /* tar bort extra utrymme ovan/under */
+}
+
+.oppettider-kontakt li {
+    margin-bottom: 4px; /* lite luft mellan raderna, valfritt */
+}
+
+.logga-sektion {
+    text-align: center;
+    background-color: white; /* eller transparent om du vill */
+    padding: 20px 0;
+    margin-top: 20px; /* lägger till lite utrymme ovanför loggan */
+    margin-bottom: 20px; /* lägger till lite utrymme under loggan */
+}
+
+.logga-sektion img {
+    position: relative;
+    max-width: 240px;
+    margin-top: 40px; /* flyttar ner bilden */
+}
+
+/* Bilder Carousel */
+/* Sektion: text vänster, bild höger */
+.tjanst-sektion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto 200px auto; /* 80px nedåt, 0 uppåt */
+    padding: 0 20px;
+  }
+  
+  .tjanst-text { flex: 1; }
+  .tjanst-bild { flex: 1; }
+  
+  /* Rubrik + brödtext */
+  .tjanst-text h2 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 0 0 12px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .tjanst-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* Din befintliga carousel – behåll men gör full bredd i sin kolumn */
+.bild-carousel {
+position: relative;
+width: 100%;        /* <- var 50%, nu fyller den högra kolumnen */
+max-width: 700px;     /* valfritt tak så den inte blir för stor */
+margin: 0;          /* ingen extra centreringsmarginal här */
+overflow: hidden;
+aspect-ratio: 16/9;   /* stabil höjd – justera vid behov */
+}
+
+.carousel-spår { display: flex; transition: transform .5s ease-in-out; }
+
+.carousel-spår img {
+    display: block;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 150%; 
+    object-fit: cover;  /* 👉 visa hela bilden utan beskärning */
+    background-color: white;
+}
+
+.carousel-knapp {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background-color: rgba(0,0,0,0.5);
+color: #fff;
+border: 0;
+padding: 10px;
+cursor: pointer;
+font-size: 18px;
+}
+.carousel-knapp.prev { left: 10px; }
+.carousel-knapp.next { right: 10px; }
+
+/* Responsivt: stapla på mobil */
+@media (max-width: 900px) {
+.tjanst-sektion {
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px auto;
+}
+.bild-carousel { width: 100%; }
+}
+
+
+/* Själva rutan */
+.omOss {
+    max-width: 900px;          /* behaglig läsbredd */
+    margin: 64px auto; /* auto på höger/vänster centrerar blocket */
+    padding: 32px 24px;        /* inre luft */
+    background: #ffffff;       /* kort på vit bakgrund */
+    text-align: center;        /* centrera texten inuti boxen */
+  }
+  
+  /* Rubrik */
+  .omOss h2 {
+    font-size: clamp(28px, 3.2vw, 40px);
+    margin: 0 0 12px;
+    letter-spacing: .5px;
+  }
+  
+  /* Brödtext */
+  .omOss p {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.6;
+    color: #222;
+    margin: 12px 0 0;
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto; /* ser till att texten inte drar iväg på stora skärmar */
+  }
+
+/* Responsiv finlir */
+@media (min-width: 900px){
+.omOss{ padding: 40px 48px; }
+}
+
+.video-section {
+text-align: center;
+margin: 32px auto 0;     /* flyttar blocket, inte videon */
+padding: 0 16px;
+}
+
+.video-title {
+    padding-top: 100px;
+    font-size: 26px;
+}
+
+/* behåll exakt dina regler nedan */
+.video-container {
+display: flex;
+justify-content: center;
+margin: 24px auto;
+padding: 0 16px;
+}
+
+.video-container video {
+width: 100%;
+max-width: 1000px;     /* växer fint på desktop */
+aspect-ratio: 16/9;    /* stabil höjd på mobil */
+height: auto;
+object-fit: cover;
+}
+  
+@media (max-width: 680px) {
+    .oppettider-kontakt {
+      flex-direction: column;   /* stapla i stället för rad */
+      gap: 16px;                /* ersätter ditt gap: 450px på mobil */
+      padding: 16px;            /* lite luft, påverkar bara mobil här */
+    }
+    .oppettider-kontakt > div {
+      width: 100%;              /* låt varje kolumn ta full bredd */
+    }
+  }
+
+  /* Mobil: tvinga ordningen Rubrik+text överst, bilder under */
+@media (max-width: 900px) {
+    .tjanst-sektion {
+      display: flex;
+      flex-direction: column;   /* stapla på höjden */
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      margin: 24px auto;        /* mindre luft än 200px på mobil */
+      padding: 0 16px;
+      margin-bottom: 100px;
+    }
+  
+    /* Flytta upp textblocket (h2 + p) oavsett om bilden ligger först i HTML */
+    .tjanst-text { 
+      order: -1;                /* text före bild i visuell ordning */
+      max-width: 70ch;
+    }
+  
+    .tjanst-text h2 {
+      font-size: clamp(22px, 5vw, 28px);
+      margin: 0 0 8px;
+    }
+  
+    .tjanst-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0;
+    }
+  
+    .tjanst-bild { 
+      order: 0; 
+      width: 100%;
+    }
+  
+    /* Se till att bild/carousel fyller bredden snyggt */
+    .bild-carousel { 
+      width: 100%;
+      max-width: 720px;
+      aspect-ratio: 16/9;
+    }
+
+    .video-description {
+      font-size: 20px;   /* gör texten större */
+      line-height: 1.7;  /* gör den luftig och lättare att läsa */
+      max-width: 900px;  /* gör att den inte blir för bred */
+      margin: 12px auto; /* centrerar texten snyggt */
+  }
+  
+  }
+  
